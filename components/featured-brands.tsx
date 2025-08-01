@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
+import Link from "next/link"
 
 export function FeaturedBrands() {
   const [isVisible, setIsVisible] = useState(false)
@@ -25,19 +26,14 @@ export function FeaturedBrands() {
 
   const brands = [
     {
-      name: "Zinco",
-      logo: "/placeholder.svg?height=80&width=200&text=Zinco",
-      description: "Premium telecommunications partner",
+      name: "Zinco Mabati",
+      logo: "/placeholder.svg?height=80&width=200&text=Zinco+Mabati",
+      description: "Premium roofing solutions partner",
     },
     {
-      name: "Makati",
-      logo: "/placeholder.svg?height=80&width=200&text=Makati",
-      description: "Leading lifestyle brand collaboration",
-    },
-    {
-      name: "Mozzart Bet",
-      logo: "/placeholder.svg?height=80&width=200&text=Mozzart+Bet",
-      description: "Sports betting platform partnership",
+      name: "Mozzart",
+      logo: "/placeholder.svg?height=80&width=200&text=Mozzart",
+      description: "Leading entertainment platform partnership",
     },
   ]
 
@@ -57,7 +53,7 @@ export function FeaturedBrands() {
         </div>
 
         {/* Brands Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12 max-w-4xl mx-auto">
           {brands.map((brand, index) => (
             <div
               key={brand.name}
@@ -93,7 +89,7 @@ export function FeaturedBrands() {
         {/* Partnership CTA */}
         <div
           className={`text-center mt-12 sm:mt-16 transition-all duration-1000 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
-          style={{ animationDelay: "600ms" }}
+          style={{ animationDelay: "400ms" }}
         >
           <div className="luxury-card p-8 sm:p-10 max-w-2xl mx-auto">
             <h3 className="font-dm-serif text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
@@ -102,9 +98,12 @@ export function FeaturedBrands() {
             <p className="text-gray-600 mb-6 text-base sm:text-lg">
               Join leading brands who trust Oga Obinna for authentic storytelling and premium audience engagement.
             </p>
-            <button className="bg-gray-900 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-medium text-base sm:text-lg transition-all duration-300 hover:bg-gray-800 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 min-h-[48px] inline-flex items-center">
+            <Link
+              href="/services"
+              className="bg-gray-900 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-medium text-base sm:text-lg transition-all duration-300 hover:bg-gray-800 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 min-h-[48px] inline-flex items-center"
+            >
               Explore Partnerships
-            </button>
+            </Link>
           </div>
         </div>
       </div>

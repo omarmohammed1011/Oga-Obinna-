@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react"
 import { ArrowRight } from "lucide-react"
+import Link from "next/link"
 
 export function About() {
   const [isVisible, setIsVisible] = useState(false)
@@ -53,10 +54,10 @@ export function About() {
               </p>
             </div>
 
-            <button className="btn-primary mt-6 sm:mt-8 group">
+            <Link href="/about" className="btn-primary mt-6 sm:mt-8 group inline-flex items-center">
               Learn More About Obinna
               <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
-            </button>
+            </Link>
           </div>
 
           {/* Image */}

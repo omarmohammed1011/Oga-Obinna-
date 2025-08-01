@@ -1,6 +1,6 @@
 "use client"
 
-import { Mail, Phone, Youtube, Instagram } from "lucide-react"
+import { Mail, Phone, Youtube, Instagram, MapPin, Clock } from "lucide-react"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -76,36 +76,51 @@ export function Footer() {
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection("#contact")}
+                  onClick={() => scrollToSection("#booking")}
                   className="text-gray-400 hover:text-white transition-colors duration-300 text-sm sm:text-base min-h-[44px] flex items-center"
                 >
-                  Contact
+                  Book Obinna
                 </button>
               </li>
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Contact Info */}
           <div>
-            <h4 className="font-semibold text-base sm:text-lg mb-4 sm:mb-6">Contact Info</h4>
+            <h4 className="font-semibold text-base sm:text-lg mb-4 sm:mb-6">Get In Touch with Obinna</h4>
             <div className="space-y-4">
+              <div className="flex items-start space-x-3">
+                <MapPin className="w-5 h-5 text-gray-400 flex-shrink-0 mt-0.5" />
+                <div className="text-gray-400 text-sm sm:text-base leading-relaxed">
+                  Hillcrest Court, Westlands,
+                  <br />
+                  Nairobi, Kenya
+                </div>
+              </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-gray-400 flex-shrink-0" />
                 <a
-                  href="mailto:booking@ogaobinna.com"
+                  href="mailto:bookings@obinnatvstudios.com"
                   className="text-gray-400 hover:text-white transition-colors duration-300 text-sm sm:text-base min-h-[44px] flex items-center"
                 >
-                  booking@ogaobinna.com
+                  bookings@obinnatvstudios.com
                 </a>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-gray-400 flex-shrink-0" />
                 <a
-                  href="tel:+254700000000"
+                  href="tel:+254798663936"
                   className="text-gray-400 hover:text-white transition-colors duration-300 text-sm sm:text-base min-h-[44px] flex items-center"
                 >
-                  +254 700 000 000
+                  +254 798 663936
                 </a>
+              </div>
+              <div className="flex items-start space-x-3">
+                <Clock className="w-5 h-5 text-gray-400 flex-shrink-0 mt-0.5" />
+                <div className="text-gray-400 text-sm sm:text-base leading-relaxed">
+                  <div className="font-medium">Monday - Friday: 9:00 AM - 4:30 PM</div>
+                  <div className="font-medium">Saturday: 10:00 AM - 4:00 PM</div>
+                </div>
               </div>
             </div>
           </div>

@@ -32,6 +32,17 @@ export function Navigation() {
 
   const isHomePage = pathname === "/"
 
+  const handleBookObinnaClick = () => {
+    if (isHomePage) {
+      const bookingSection = document.getElementById("booking")
+      if (bookingSection) {
+        bookingSection.scrollIntoView({ behavior: "smooth" })
+      }
+    } else {
+      window.location.href = "/#booking"
+    }
+  }
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -76,16 +87,16 @@ export function Navigation() {
 
           {/* Premium CTA Button */}
           <div className="hidden md:block">
-            <Link
-              href="/contact"
+            <button
+              onClick={handleBookObinnaClick}
               className={`font-poppins px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg font-semibold text-sm sm:text-base transition-all duration-300 min-h-[40px] inline-flex items-center tracking-wide ${
                 isScrolled || !isHomePage
                   ? "bg-gradient-to-r from-[#F3C623] to-[#FFD700] text-slate-900 hover:shadow-gold-glow hover:scale-105"
                   : "bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white hover:text-slate-900"
               }`}
             >
-              Book Event
-            </Link>
+              Book Obinna
+            </button>
           </div>
 
           {/* Mobile menu button */}
@@ -118,12 +129,12 @@ export function Navigation() {
                 </Link>
               ))}
               <div className="pt-2 border-t border-slate-200">
-                <Link
-                  href="/contact"
+                <button
+                  onClick={handleBookObinnaClick}
                   className="w-full bg-gradient-to-r from-[#F3C623] to-[#FFD700] text-slate-900 px-3 py-3 rounded-md font-poppins font-semibold text-base min-h-[44px] hover:shadow-gold-glow transition-all duration-200 inline-flex items-center justify-center tracking-wide"
                 >
-                  Book Event
-                </Link>
+                  Book Obinna
+                </button>
               </div>
             </div>
           </div>
