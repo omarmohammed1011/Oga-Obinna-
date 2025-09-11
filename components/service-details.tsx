@@ -1,24 +1,11 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import {
-  Mic,
-  Users,
-  Award,
-  Heart,
-  Music,
-  Camera,
-  HandHeart,
-  ChevronDown,
-  ChevronUp,
-  Star,
-  Clock,
-  DollarSign,
-} from "lucide-react"
+import { Mic, Users, Camera, Music, Calendar, MessageCircle, Gift, Star, ChevronDown, ChevronUp } from "lucide-react"
 
 export function ServiceDetails() {
   const [isVisible, setIsVisible] = useState(false)
-  const [expandedService, setExpandedService] = useState<string | null>(null)
+  const [expandedService, setExpandedService] = useState<number | null>(null)
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
@@ -38,270 +25,287 @@ export function ServiceDetails() {
     return () => observer.disconnect()
   }, [])
 
-  const toggleService = (serviceId: string) => {
-    setExpandedService(expandedService === serviceId ? null : serviceId)
-  }
-
   const services = [
     {
-      id: "event-mc",
+      id: 1,
       icon: Mic,
       title: "Event MC",
+      description: "Professional hosting with energy, humor, and crowd engagement expertise.",
+      fullDescription:
+        "Transform your event with Obinna's dynamic hosting style. From corporate functions to weddings, he brings the perfect blend of professionalism and entertainment that keeps audiences engaged throughout your event. His experience spans over 500 events, making him Kenya's most sought-after MC.",
+      features: [
+        "Professional event hosting and crowd management",
+        "Custom scripts tailored to your event theme",
+        "Bilingual presentation (English & Swahili)",
+        "Interactive audience engagement activities",
+        "Professional sound equipment coordination",
+        "Timeline management and smooth transitions",
+      ],
       price: "From KSh 50,000",
-      duration: "2-8 hours",
-      description:
-        "Transform your event with Kenya's most charismatic MC. Oga Obinna brings unmatched energy, crowd engagement, and seamless event flow management.",
-      fullDescription:
-        "Elevate your event with professional MC services that guarantee memorable experiences. Oga Obinna's commanding stage presence, improvisational skills, and cultural insight ensure your event runs smoothly while keeping guests entertained throughout. Perfect for corporate galas, product launches, award ceremonies, and wedding celebrations.",
-      features: [
-        "Pre-event consultation and planning",
-        "Custom script development",
-        "Professional stage presence",
-        "Crowd engagement expertise",
-        "Seamless event transitions",
-        "Microphone and basic sound coordination",
-      ],
+      duration: "4-8 hours",
+      includes: "Pre-event consultation, custom script development, professional hosting, post-event follow-up",
     },
     {
-      id: "influencing",
-      icon: Star,
+      id: 2,
+      icon: Users,
       title: "Brand Influencing",
-      price: "From KSh 100,000",
-      duration: "Campaign based",
-      description:
-        "Leverage Oga Obinna's massive social media following and authentic voice to amplify your brand message across multiple platforms.",
+      description: "Amplify your brand through Obinna's massive social media following.",
       fullDescription:
-        "Partner with one of East Africa's most trusted entertainment personalities for authentic brand storytelling. With millions of engaged followers across platforms, your brand gets premium exposure through creative content, genuine endorsements, and strategic campaigns that resonate with target demographics.",
+        "Leverage Obinna's 2M+ social media following to boost your brand visibility. Strategic content creation and authentic endorsements that resonate with Kenyan audiences. Our campaigns have generated over 50M impressions for partner brands.",
       features: [
-        "Multi-platform content creation",
-        "Authentic brand storytelling",
-        "Millions of engaged followers",
-        "Creative campaign concepts",
-        "Performance analytics and reporting",
-        "Long-term partnership opportunities",
+        "Strategic social media campaigns across all platforms",
+        "Custom content creation and storytelling",
+        "Authentic brand endorsements and testimonials",
+        "Detailed audience analytics and reporting",
+        "Cross-platform content distribution",
+        "Long-term brand partnership opportunities",
       ],
+      price: "From KSh 100,000",
+      duration: "1-4 weeks",
+      includes: "Campaign strategy, content creation, posting schedule, analytics report",
     },
     {
-      id: "apology-package",
-      icon: Heart,
+      id: 3,
+      icon: Gift,
       title: "Apology Package",
+      description: "A unique and humorous way to send apologies through Obinna's personal delivery.",
+      fullDescription:
+        "Need to make amends? Let Obinna deliver your apology in his signature humorous style. Perfect for relationship mishaps, business apologies, or any situation requiring a memorable peace offering. This unique service has a 95% success rate in mending relationships!",
+      features: [
+        "Personal apology delivery by Obinna",
+        "Custom apology script with humor elements",
+        "Professional video recording of the apology",
+        "Guaranteed memorable and effective delivery",
+        "Follow-up consultation if needed",
+        "Discretion and professionalism assured",
+      ],
       price: "From KSh 25,000",
       duration: "1-2 hours",
-      description: "A unique and humorous way to send apologies through Obinna's personal delivery and charm.",
-      fullDescription:
-        "Made a mistake? Let Kenya's most beloved entertainer help you make amends! This signature service includes personalized apology videos, custom message crafting, and Obinna's natural charm to help mend relationships. Whether for romantic gestures, business apologies, or family reconciliation, this heartfelt approach has proven success.",
-      features: [
-        "Personalized apology video creation",
-        "Custom message crafting",
-        "Emotional storytelling approach",
-        "High success rate in reconciliation",
-        "Discreet and professional delivery",
-        "Follow-up consultation if needed",
-      ],
+      includes: "Script consultation, personal delivery, video recording, follow-up support",
     },
     {
-      id: "appearance",
-      icon: Award,
+      id: 4,
+      icon: Star,
       title: "Special Appearance",
-      price: "From KSh 75,000",
-      duration: "1-3 hours",
-      description: "Add star power to your event with Oga Obinna's special appearance and celebrity presence.",
+      description: "Book Obinna to make your event unforgettable with his celebrity presence.",
       fullDescription:
-        "Create unforgettable moments with celebrity appearances that generate buzz and social media engagement. Perfect for grand openings, VIP parties, brand activations, and exclusive gatherings. Includes red carpet moments, photo opportunities, brief remarks, and that star quality that makes your event truly special.",
+        "Add star power to your event with Obinna's celebrity appearance. Perfect for grand openings, product launches, or any occasion that needs that extra special touch. His presence guarantees media attention and social media buzz.",
       features: [
-        "Red carpet presence",
+        "Celebrity presence and star power",
         "Professional photo opportunities",
-        "Brief remarks or speech",
-        "Social media buzz generation",
-        "VIP guest interactions",
-        "Event publicity enhancement",
+        "Meet & greet sessions with guests",
+        "Social media coverage and posts",
+        "Media interviews if required",
+        "Red carpet appearances",
       ],
+      price: "From KSh 75,000",
+      duration: "2-4 hours",
+      includes: "Celebrity appearance, photo sessions, social media coverage, brief remarks",
     },
     {
-      id: "event-management",
-      icon: Users,
+      id: 5,
+      icon: Calendar,
       title: "Event Management",
-      price: "From KSh 200,000",
-      duration: "Full service",
-      description: "Complete end-to-end event management by Obinna's professional team for flawless execution.",
+      description: "Full support for planning, coordinating, and executing your event.",
       fullDescription:
-        "Comprehensive event planning and management services that handle every detail from concept to execution. Our experienced team manages venue selection, vendor coordination, timeline development, and on-site supervision to ensure your event exceeds expectations with celebrity-level attention to detail.",
+        "Complete event management services from concept to execution. Obinna's experienced team handles all aspects of event planning, ensuring your occasion runs smoothly and memorably. We've successfully managed over 200 events of all sizes.",
       features: [
-        "Complete event planning and design",
+        "Complete event planning and conceptualization",
         "Vendor coordination and management",
-        "Timeline development and management",
+        "Detailed timeline and logistics management",
         "On-site supervision and coordination",
-        "Celebrity-level execution standards",
-        "Post-event analysis and reporting",
+        "Budget management and cost optimization",
+        "Post-event evaluation and reporting",
       ],
+      price: "From KSh 150,000",
+      duration: "2-8 weeks",
+      includes: "Full planning, vendor coordination, on-site management, post-event report",
     },
     {
-      id: "sound-dj",
+      id: 6,
       icon: Music,
-      title: "Sound & DJ Services",
-      price: "From KSh 40,000",
-      duration: "4-12 hours",
-      description: "Professional sound system and DJ services curated by Obinna's entertainment network.",
+      title: "Sound & DJ",
+      description: "Professional sound setup and DJ services to keep the vibe alive.",
       fullDescription:
-        "Complete audio entertainment solutions featuring high-quality sound systems and experienced DJs from Obinna's professional network. Our team understands crowd dynamics and music selection that keeps your guests engaged all night. Perfect for weddings, corporate events, and private parties.",
+        "Premium sound systems and professional DJ services that keep your event energized. From background music to dance floor hits, we've got your audio needs covered with state-of-the-art equipment and experienced DJs.",
       features: [
         "Professional sound system setup",
-        "Experienced DJ from our network",
-        "Backup equipment and technical support",
-        "Custom playlist development",
-        "Crowd reading and music adaptation",
+        "Experienced DJ services",
+        "Custom music curation for your event",
+        "Technical support throughout the event",
         "Wireless microphone systems",
+        "Backup equipment for reliability",
       ],
+      price: "From KSh 40,000",
+      duration: "4-12 hours",
+      includes: "Sound system, DJ services, music curation, technical support",
     },
     {
-      id: "photography",
+      id: 7,
       icon: Camera,
-      title: "Event Photography",
-      price: "From KSh 60,000",
-      duration: "4-8 hours",
-      description: "Capture your moments with high-quality photography coverage and professional editing.",
+      title: "Photography",
+      description: "Capture your moments with high-quality photography coverage.",
       fullDescription:
-        "Professional event photography services that document every precious moment of your special occasion. Our experienced photographers specialize in event coverage, candid moments, and high-quality portraits that tell your event's story beautifully.",
+        "Professional photography services that capture every important moment of your event. High-quality images delivered in multiple formats for all your needs. Our photographers specialize in event coverage with a keen eye for candid and formal shots.",
       features: [
-        "Professional photographers",
+        "Professional event photography",
         "Comprehensive event coverage",
-        "Same-day highlight delivery",
-        "48-hour full gallery delivery",
-        "High-resolution image gallery",
-        "Professional editing and retouching",
+        "High-resolution edited photos",
+        "Digital delivery in multiple formats",
+        "Same-day preview gallery",
+        "Print-ready image formats",
       ],
+      price: "From KSh 30,000",
+      duration: "4-8 hours",
+      includes: "Professional photography, editing, digital gallery, high-res downloads",
     },
     {
-      id: "meet-greet",
-      icon: HandHeart,
+      id: 8,
+      icon: MessageCircle,
       title: "Meet & Greet",
-      price: "From KSh 30,000",
-      duration: "30-60 minutes",
-      description: "Book a personal session with Obinna for fans, friends, or clients in an intimate setting.",
+      description: "Book a personal session with Obinna for fans, friends, or clients.",
       fullDescription:
-        "Intimate meet and greet experiences with Oga Obinna for your VIP guests or special occasions. Perfect for fan events, corporate VIP experiences, or personal celebrations. Create unforgettable memories through personalized interactions, photo opportunities, and authentic conversations.",
+        "Intimate meet and greet sessions with Obinna. Perfect for fan experiences, client appreciation events, or special occasions requiring a personal touch. These sessions create lasting memories and strengthen relationships.",
       features: [
-        "Personal one-on-one interactions",
-        "Professional photo opportunities",
-        "Autograph sessions",
-        "VIP experience coordination",
-        "Memorable conversation moments",
-        "Flexible scheduling options",
+        "Personal one-on-one interaction",
+        "Professional photo sessions",
+        "Autograph opportunities",
+        "Memorable conversation and experience",
+        "Customized interaction based on occasion",
+        "Social media photo opportunities",
       ],
+      price: "From KSh 20,000",
+      duration: "1-2 hours",
+      includes: "Personal interaction, photo session, autographs, memorable experience",
     },
   ]
 
+  const toggleExpanded = (serviceId: number) => {
+    setExpandedService(expandedService === serviceId ? null : serviceId)
+  }
+
   return (
-    <section id="service-details" ref={sectionRef} className="py-16 sm:py-20 lg:py-24 bg-gray-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+    <section ref={sectionRef} className="py-16 sm:py-20 lg:py-32 bg-white">
+      <div className="container-max px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div
-          className={`text-center mb-12 sm:mb-16 transition-all duration-800 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
+          className={`text-center mb-12 sm:mb-16 transition-all duration-800 ${
+            isVisible ? "animate-fade-in-up" : "opacity-0"
+          }`}
         >
           <h2 className="font-dm-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-            Our Services
+            Detailed Service Offerings
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-            Click on any service below to learn more about what's included and how we can make your event extraordinary
+            Explore our comprehensive range of entertainment and event services, each designed to deliver exceptional
+            experiences
           </p>
         </div>
 
-        {/* Services Grid */}
+        {/* Services List */}
         <div className="space-y-6">
-          {services.map((service, index) => {
-            const IconComponent = service.icon
-            const isExpanded = expandedService === service.id
-
-            return (
-              <div
-                key={service.id}
-                className={`bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden ${
-                  isVisible ? "animate-fade-in-up" : "opacity-0"
-                }`}
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                {/* Service Header - Clickable */}
-                <button
-                  onClick={() => toggleService(service.id)}
-                  className="w-full p-6 sm:p-8 text-left hover:bg-gray-50 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:ring-inset"
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-4 sm:gap-6">
-                      <div className="p-3 bg-gray-900 rounded-xl">
-                        <IconComponent className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-xl sm:text-2xl text-gray-900 mb-2">{service.title}</h3>
-                        <p className="text-gray-600 text-sm sm:text-base">{service.description}</p>
-                      </div>
+          {services.map((service, index) => (
+            <div
+              key={service.id}
+              className={`luxury-card transition-all duration-500 ${
+                isVisible ? "animate-fade-in-up" : "opacity-0"
+              } ${expandedService === service.id ? "shadow-xl" : ""}`}
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              <div className="p-6 cursor-pointer" onClick={() => toggleExpanded(service.id)}>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center">
+                      <service.icon className="w-6 h-6 text-amber-600" />
                     </div>
-                    <div className="flex items-center gap-4">
-                      <div className="text-right hidden sm:block">
-                        <div className="flex items-center gap-2 text-gold-600 font-semibold mb-1">
-                          <DollarSign className="w-4 h-4" />
-                          {service.price}
-                        </div>
-                        <div className="flex items-center gap-2 text-gray-500 text-sm">
-                          <Clock className="w-4 h-4" />
-                          {service.duration}
-                        </div>
-                      </div>
-                      {isExpanded ? (
-                        <ChevronUp className="w-6 h-6 text-gray-400" />
-                      ) : (
-                        <ChevronDown className="w-6 h-6 text-gray-400" />
-                      )}
+                    <div>
+                      <h3 className="font-bold text-xl text-gray-900">{service.title}</h3>
+                      <p className="text-gray-600">{service.description}</p>
                     </div>
                   </div>
-
-                  {/* Mobile pricing */}
-                  <div className="sm:hidden mt-4 flex justify-between text-sm">
-                    <span className="text-gold-600 font-semibold">{service.price}</span>
-                    <span className="text-gray-500">{service.duration}</span>
+                  <div className="flex items-center space-x-4">
+                    <div className="text-right hidden sm:block">
+                      <p className="font-semibold text-gray-900">{service.price}</p>
+                      <p className="text-sm text-gray-600">{service.duration}</p>
+                    </div>
+                    {expandedService === service.id ? (
+                      <ChevronUp className="w-5 h-5 text-amber-600" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5 text-amber-600" />
+                    )}
                   </div>
-                </button>
+                </div>
 
-                {/* Expanded Content */}
-                {isExpanded && (
-                  <div className="border-t border-gray-200 p-6 sm:p-8 bg-gray-50 animate-fade-in-up">
-                    <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
+                {/* Mobile Price Display */}
+                <div className="sm:hidden mt-4 flex justify-between items-center">
+                  <span className="font-semibold text-gray-900">{service.price}</span>
+                  <span className="text-sm text-gray-600">{service.duration}</span>
+                </div>
+              </div>
+
+              {/* Expanded Content */}
+              {expandedService === service.id && (
+                <div className="px-6 pb-6 border-t border-gray-100 animate-fade-in-up">
+                  <div className="pt-6 grid lg:grid-cols-3 gap-6">
+                    <div className="lg:col-span-2 space-y-6">
                       <div>
-                        <h4 className="font-semibold text-lg text-gray-900 mb-4">Service Details</h4>
-                        <p className="text-gray-700 leading-relaxed mb-6">{service.fullDescription}</p>
+                        <h4 className="font-semibold text-gray-900 mb-3">Detailed Description</h4>
+                        <p className="text-gray-600 leading-relaxed">{service.fullDescription}</p>
                       </div>
 
                       <div>
-                        <h4 className="font-semibold text-lg text-gray-900 mb-4">What's Included</h4>
-                        <ul className="space-y-2">
+                        <h4 className="font-semibold text-gray-900 mb-3">What's Included</h4>
+                        <ul className="grid sm:grid-cols-2 gap-2">
                           {service.features.map((feature, idx) => (
-                            <li key={idx} className="flex items-start gap-3">
-                              <div className="w-2 h-2 bg-gold-500 rounded-full mt-2 flex-shrink-0"></div>
-                              <span className="text-gray-700 text-sm sm:text-base">{feature}</span>
+                            <li key={idx} className="flex items-start text-gray-600">
+                              <div className="w-2 h-2 bg-amber-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                              <span>{feature}</span>
                             </li>
                           ))}
                         </ul>
                       </div>
                     </div>
 
-                    <div className="mt-6 pt-6 border-t border-gray-200 text-center">
-                      <button
-                        onClick={() => {
-                          const bookingSection = document.getElementById("booking")
-                          if (bookingSection) {
-                            bookingSection.scrollIntoView({ behavior: "smooth" })
-                          }
-                        }}
-                        className="bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-300 inline-flex items-center gap-2"
-                      >
-                        Book This Service
-                        <Award className="w-4 h-4" />
-                      </button>
+                    <div className="bg-gray-50 rounded-lg p-6">
+                      <h4 className="font-semibold text-gray-900 mb-4">Service Package</h4>
+                      <div className="space-y-4">
+                        <div>
+                          <span className="text-sm text-gray-500">Starting Price</span>
+                          <p className="font-bold text-xl text-gray-900">{service.price}</p>
+                        </div>
+                        <div>
+                          <span className="text-sm text-gray-500">Duration</span>
+                          <p className="font-semibold text-gray-900">{service.duration}</p>
+                        </div>
+                        <div>
+                          <span className="text-sm text-gray-500">Package Includes</span>
+                          <p className="text-sm text-gray-600 leading-relaxed">{service.includes}</p>
+                        </div>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            window.location.href = "/#book-obinna"
+                          }}
+                          className="w-full bg-amber-500 text-black px-4 py-3 rounded-lg font-medium hover:bg-amber-400 transition-colors duration-300"
+                        >
+                          Book This Service
+                        </button>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            window.location.href = "/contact"
+                          }}
+                          className="w-full border border-gray-300 text-gray-700 px-4 py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors duration-300"
+                        >
+                          Get Custom Quote
+                        </button>
+                      </div>
                     </div>
                   </div>
-                )}
-              </div>
-            )
-          })}
+                </div>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </section>
