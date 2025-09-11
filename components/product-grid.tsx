@@ -2,9 +2,12 @@
 
 import { useState, useEffect, useRef } from "react"
 import { ShoppingCart, Star } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export function ProductGrid() {
   const [isVisible, setIsVisible] = useState(false)
+  const [cart, setCart] = useState<number[]>([])
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
@@ -81,6 +84,11 @@ export function ProductGrid() {
     },
   ]
 
+  const addToCart = (productId: number) => {
+    setCart((prev) => [...prev, productId])
+    // In a real app, this would update global cart state
+  }
+
   return (
     <section ref={sectionRef} className="py-12 sm:py-16 lg:py-24 bg-gray-50">
       <div className="container-max px-4 sm:px-6 lg:px-8">
@@ -150,7 +158,10 @@ export function ProductGrid() {
                 {/* Price and Add to Cart */}
                 <div className="flex items-center justify-between">
                   <span className="text-xl font-bold text-gray-900">{product.price}</span>
-                  <button className="bg-gray-900 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 flex items-center space-x-2 min-h-[40px]">
+                  <button
+                    onClick={() => addToCart(product.id)}
+                    className="bg-gray-900 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 flex items-center space-x-2 min-h-[40px]"
+                  >
                     <ShoppingCart className="w-4 h-4" />
                     <span>Add to Cart</span>
                   </button>
@@ -159,6 +170,21 @@ export function ProductGrid() {
             </div>
           ))}
         </div>
+
+        {/* Cart Summary & Checkout */}
+        {cart.length > 0 && (
+          <div className="fixed bottom-4 right-4 bg-white rounded-lg shadow-lg p-4 border">
+            <div className="flex items-center space-x-4">
+              <div>
+                <p className="font-medium">{cart.length} items in cart</p>
+                <p className="text-sm text-gray-600">Ready to checkout</p>
+              </div>
+              <Link href="/checkout">
+                <Button>Checkout</Button>
+              </Link>
+            </div>
+          </div>
+        )}
 
         {/* Coming Soon Notice */}
         <div
